@@ -1,2 +1,2 @@
 # Microservices
-Primer example of microservice using Ocelot
+Primer example of microservice using Ocelot API Gateway

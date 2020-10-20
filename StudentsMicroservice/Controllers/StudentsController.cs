@@ -10,7 +10,7 @@ namespace StudentMicroservice.Controllers
 {
     [ApiController]
     [EnableCors("_myAllowSpecificOrigins")]
-    [Route("[controller]")]
+    //[Route("[controller]")]
     public class StudentsController : ControllerBase
     {     
 
@@ -22,7 +22,8 @@ namespace StudentMicroservice.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Student> Get()
+        [Route("GetAll")]
+        public IEnumerable<Student> GetAllStudents()
         {
             return Enumerable.Range(1, 20).Select(index => new Student
             {

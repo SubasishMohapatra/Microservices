@@ -1,7 +1,7 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/Teachers",
+      "DownstreamPathTemplate": "/GetAllTeachers",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -10,10 +10,11 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/Teachers",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "Key": "teachers"
     },
     {
-      "DownstreamPathTemplate": "/Students",
+      "DownstreamPathTemplate": "/GetAllStudents",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -22,10 +23,20 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/Students",
-      "UpstreamHttpMethod": ["GET"]
+      "UpstreamHttpMethod": [ "GET" ],
+      "Key": "students"
     }
   ],
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:7000"
+    },
+    "Aggregates": [
+      {
+        "RouteKeys": [
+          "teachers",
+          "students"
+        ],
+        "UpstreamPathTemplate": "/gateway/studentsteachers"
+      }
+    ]
   }
-}

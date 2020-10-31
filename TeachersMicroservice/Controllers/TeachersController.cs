@@ -22,7 +22,7 @@ namespace TeacherMicroservice.Controllers
         }
 
         [HttpGet]
-        [Route("GetAll")]
+        [Route("GetAllTeachers")]
         public IEnumerable<Teacher> GetAllTeachers()
         {
             return Enumerable.Range(1, 10).Select(index => new Teacher
